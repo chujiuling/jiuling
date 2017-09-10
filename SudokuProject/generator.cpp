@@ -15,13 +15,13 @@ void generator::setNum(int x, int y)
 	{
 		if (x == 0 && y == 1)
 		{
-			out.open("sudoku.txt", ios::trunc);//第一次填第二格前清空文件
+			out.open(".//sudoku.txt", ios::trunc);//第一次填第二格前清空文件
 			temp = false;//避免回溯到第二格清空了
 		}
 	}
 	else                            
 	{
-		out.open("sudoku.txt", ios::ate | ios::in);//接下来指向文件末尾接着写
+		out.open(".//sudoku.txt", ios::ate | ios::in);//接下来指向文件末尾接着写
 	}
 	if (count1 == a)
 	{

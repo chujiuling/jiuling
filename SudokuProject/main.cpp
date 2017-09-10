@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		}
 		a = argv[2][i] - '0' + a * 10;//a为数独数目
 	}												 
-
+	
 	//cin >> a;
 	array1[0][0] = 4;  //学号运算=4 
 	in.setNum(0, 1);//从第二格开始试数
