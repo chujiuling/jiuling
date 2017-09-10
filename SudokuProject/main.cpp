@@ -1,3 +1,6 @@
+// project4.cpp: å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
+//
+#include "stdafx.h"
 #include<iostream>
 #include <stdlib.h>
 #include"generator.h"
@@ -9,28 +12,28 @@ int count1 = 0;
 int array1[9][9];
 int main(int argc, char *argv[])
 {
+	//cout << argv[0] << endl;
 	generator in;
-	if (argc < 3)
+	if (argc != 3)
 	{
-		cout << "¶Ô²»Æğ£¬ÄúÊäÈë²ÎÊı¸ñÊ½ÓĞÎó" << endl;
+		cout << "please input two parameters."<< endl;
 		return 0;
 	}
 	if (argv[1][0] != '-' || argv[1][1] != 'c' || argv[1][2] != '\0')
 	{
-		cout << "µÚÒ»¸ö²ÎÊıÊäÈëÓ¦Îª -c !" << endl;
-		return 0;//Èç¹ûÊäÈëµÚÒ»¸ö²ÎÊı²»ÊÇ-c ²»Êä³ö
+		cout << "please input -c as the first parameter." << endl;
+		return 0;//å¦‚æœè¾“å…¥ç¬¬äºŒä¸ªå‚æ•°ä¸æ˜¯-c ä¸è¾“å‡º
 	}
-	for (int i=0;argv[2][i]!='\0';i++) 
+	for (int i = 0; argv[2][i] != '\0'; i++)
 	{
 		if (argv[2][i] < 48 || argv[2][i]>57)
 		{
-			cout << "ÇëÊäÈëËùĞèÊı¶ÀµÄÊıÄ¿¡£" << endl;
-			return 0;//Èç¹ûÊäÈëµÚ¶ş¸ö²ÎÊı²»ÊÇÊı×Ö ²»Êä³ö
+			cout << "please input number as the second parameter." << endl;
+			return 0;//å¦‚æœè¾“å…¥ç¬¬ä¸‰ä¸ªå‚æ•°ä¸æ˜¯æ•°å­— ä¸è¾“å‡º
 		}
-		a = argv[2][i] - '0' + a * 10;//aÎªÊı¶ÀÊıÄ¿
-	}												 
-	
+		a = argv[2][i] - '0' + a * 10;//aä¸ºæ•°ç‹¬æ•°ç›®
+	}
 	//cin >> a;
-	array1[0][0] = 4;  //Ñ§ºÅÔËËã=4 
-	in.setNum(0, 1);//´ÓµÚ¶ş¸ñ¿ªÊ¼ÊÔÊı
+	array1[0][0] = 4;  //å­¦å·è¿ç®—=4 
+	in.setNum(0, 1);//ä»ç¬¬äºŒæ ¼å¼€å§‹è¯•æ•°
 }
