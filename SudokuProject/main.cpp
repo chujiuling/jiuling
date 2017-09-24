@@ -4,8 +4,10 @@
 #include<iostream>
 #include <stdlib.h>
 #include"generator.h"
-#include<fstream>
+//#include<fstream>
 #include<string.h>
+#include <cstdio>
+#pragma warning(disable : 4996)
 using namespace std;
 int a;
 int count1 = 0;
@@ -35,5 +37,6 @@ int main(int argc, char *argv[])
 	}
 	//cin >> a;
 	array1[0][0] = 4;  //学号运算=4 
+	freopen(".//sudoku.txt", "w", stdout);
 	in.setNum(0, 1);//从第二格开始试数
 }

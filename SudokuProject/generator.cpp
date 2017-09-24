@@ -2,7 +2,7 @@
 #include "generator.h"
 #include <stdio.h>
 #include<iostream>
-#include<fstream>
+//#include<fstream>
 using namespace std;
 extern int a;//所需的棋盘数
 extern int count1;//已生成的棋盘数
@@ -10,33 +10,43 @@ extern int array1[9][9];
 int flag[81][10] = {};//标记每个格子哪些数字试过了
 bool temp = true;
 int ii, jj;
-ofstream out(".//sudoku.txt", ios::out);//输出到txt
+//ofstream out(".//sudoku.txt", ios::out);//输出到txt
 void generator::print()
 {
-	if (out.is_open())
-	{
+	count1++;//计算有几个数独输出
+	//if (out.is_open())
+	//{
 		for (ii = 0; ii < 9; ii++)
 		{
 			for (jj = 0; jj < 8; jj++)
 			{
-				out << (char)(array1[ii][jj]+48) << ' ';
+				putchar(array1[ii][jj] + 48);
+				putchar(' ');
+				//out << (char)(array1[ii][jj]+48) << ' ';
 				//cout << array1[ii][jj] << " ";
 			}
-			out << (char)(array1[ii][jj] + 48);//输出最后一格
+			putchar(array1[ii][jj] + 48);
+			if ((ii < 8) ||( (ii == 8) && (count1 < a)))
+			{
+				putchar('\n');
+			}
+			//out << (char)(array1[ii][jj] + 48);//输出最后一格
 			//cout << array1[ii][jj];
-			out << endl;
+			//out << endl;
 			//cout << endl;
 		}
-		out << endl;
+		if (count1 < a)
+			putchar('\n');
+		//out << endl;
 		//cout << endl;
-		count1++;//计算有几个数独输出
-	}//9*9格子全部填满，输出
+		
+	//9*9格子全部填满，输出
 }
 void generator::setNum(int x, int y)
 {
 	if (count1 == a)
 	{
-		out.close();
+		//out.close();
 		//cout << a << endl;
 		//system("pause");
 		return;
@@ -46,7 +56,7 @@ void generator::setNum(int x, int y)
 		print();
 		return;
 	}
-	int t = rand() % 10;//生成随机数t
+	int t = rand() % 9 + 1;//生成随机数t
 	for (int count_t = 0; count_t < 9;)//在该格内试着填入t
 	{
 		if (flag[x * 9 + y][t] == 1)
